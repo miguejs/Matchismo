@@ -38,7 +38,7 @@
 //}
 
 - (IBAction)touchCardButton:(UIButton *)sender {
-   
+    
     int chosenButtonIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:chosenButtonIndex];
     [self updateUI];
@@ -70,17 +70,30 @@
         Card *card = [self.game cardAtIndex:cardButtonIndex];
         [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
-        cardButton.enabled = !card.isMatched;
+        
         self.Label1.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+        
+        if([cardButton.titleLabel.text  hasSuffix:@"💣"]){
+            
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Perdiste " message:@"Deseas Reiniciar el juego" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+            [alert show];
+
+        }
+
+    
+        
     }
 }
 -(NSString *)titleForCard:(Card *)card{
-    
-    return card.isChosen ? card.contents : @"";
+        return card.isChosen ? card.contents : @"";
 }
 
 -(UIImage *)backgroundImageForCard:(Card *)card{
     return [UIImage imageNamed:card.isChosen ? @"blank card" : @"back card"];
 }
-
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) { // Set buttonIndex == 0 to handel "Ok"/"Yes" button response
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+    }}
 @end
