@@ -15,30 +15,49 @@
 
 @implementation ViewController
 
--(void)setFlipCount:(int)flipCount {
-    
-    _flipCount= flipCount;
-    self.Label1.text= [NSString stringWithFormat:@"Flips: %d",self.flipCount];
-}
+
+
+
+//-(void)setFlipCount:(int)flipCount {
+//    
+//    _flipCount= flipCount;
+//    self.Label1.text= [NSString stringWithFormat:@"Flips: %d",self.flipCount];
+//}
 
 - (IBAction)touchCardButton:(UIButton *)sender {
    
-    if ([sender.currentTitle length]) {
-        
-        [ sender setBackgroundImage:[ UIImage imageNamed:@"back card" ]
-                           forState:UIControlStateNormal];
-        
-        [ sender setTitle:@"" forState:UIControlStateNormal ];
-        
-    } else    {
-        
-        [ sender setBackgroundImage:[ UIImage imageNamed:@"blank card" ]
-                           forState:UIControlStateNormal];
-        
-        [ sender setTitle:@"A♣︎" forState:UIControlStateNormal ];
-    }
 
-    self.flipCount++;
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//    if ([sender.currentTitle length]) {
+//        
+//        [ sender setBackgroundImage:[ UIImage imageNamed:@"back card" ]
+//                           forState:UIControlStateNormal];
+//        
+//        [ sender setTitle:@"" forState:UIControlStateNormal ];
+//        
+//    } else    {
+//        
+//        [ sender setBackgroundImage:[ UIImage imageNamed:@"blank card" ]
+//                           forState:UIControlStateNormal];
+//        
+//        [ sender setTitle:@"A♣︎" forState:UIControlStateNormal ];
+//    }
+//
+//    self.flipCount++;
 }
 
 
